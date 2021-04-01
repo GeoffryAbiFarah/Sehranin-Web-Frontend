@@ -1,40 +1,60 @@
-import {Component} from 'react';
-import {Button, Form, FormGroup, Label, Input, InputGroup, InputGroupText} from 'reactstrap';
+import {Form, FormGroup, Label, Input, InputGroup, InputGroupText} from 'reactstrap';
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import { postParty } from '../actions/postPartyAction';
+
+export default function PostParty (){
+
+    const dispatch = useDispatch();
+
+    const onSubmit = () => {
+        const title = document.getElementById('title-id').value.toString();
+        const place = document.getElementById('place-id').value.toString();
+        const address = document.getElementById('address-id').value.toString();
+        const date = document.getElementById('date-id').value.toString();
+        const time = document.getElementById('time-id').value.toString();
+        const number = document.getElementById('number-id').value.toString();
+        const price = document.getElementById('price-id').value.toString();
+        const drinks = document.getElementById('drinks-id').value.toString();
+        const description = document.getElementById('description-id').value.toString();
+        const image = document.querySelector('input[type="file"]').files[0];
+
+        const party = {
+            title,
+            place,
+            address,
+            date,
+            time,
+            number,
+            price,
+            drinks,
+            description,
+            image
+        }
+        console.log("in component:" , party);
 
 
-class PostParty extends Component{
 
-    onSubmit(){
-        // const title = document.getElementById('title-id').value.toString();
-        // const place = document.getElementById('place-id').value.toString();
-        // const address = document.getElementById('address-id').value.toString();
-        // const date = document.getElementById('date-id').value.toString();
-        // const time = document.getElementById('time-id').value.toString();
-        // const number = document.getElementById('number-id').value.toString();
-        // const price = document.getElementById('price-id').value.toString();
-        // const drinks = document.getElementById('drinks-id').value.toString();
-        // const description = document.getElementById('description-id').value.toString();
-        // const image = document.getElementById('image-id').value.toString();
+        dispatch(postParty(party));
+
+        //post request for posting party
+        // const formData = new FormData()
+        // formData.append('image', image.files[0]);
+        // formData.append('data', data);
         //
-        // const data = {
-        //     title,
-        //     place,
-        //     address,
-        //     date,
-        //     time,
-        //     number,
-        //     price,
-        //     drinks,
-        //     description,
-        //     image
-        // }
-        // console.log("in component:" , data);
-
+        // fetch("http://localhost:3000/parties", {
+        //     method: 'POST',
+        //     body: formData
+        // }).then(info => {
+        //     console.log(info);
+        // })
+        //     .catch(err => console.log(err));
     }
 
-    render(){
+
         return(
             <div className="container">
+
                 <h2 className="text-center mt-2" style={{color: "purple"}}>You want to share your party ?</h2>
                 <h4 className="text-center" style={{color: "purple"}}>Fill this form to share it !</h4>
                 <Form >
@@ -81,7 +101,7 @@ class PostParty extends Component{
                     <FormGroup >
                         <Label for="price-id">Price</Label>
                         <InputGroup >
-                            <Input type="address" name="address" id="address-id" placeholder="Ex. 80 000 ..." />
+                            <Input type="text" name="price" id="price-id" placeholder="Ex. 80 000 ..." />
                             <InputGroupText>L.L.</InputGroupText>
                         </InputGroup>
                     </FormGroup>
@@ -104,10 +124,7 @@ class PostParty extends Component{
 
 
                 </Form>
-                <Button className="text-center" onClick={() => this.onSubmit()}>Submit</Button>
+                <Link to="/" className=" btn btn-default text-center btn-outline-info" onClick={() => onSubmit()}>Submit</Link>
             </div>
         );
-    }
 }
-
-export default PostParty;
