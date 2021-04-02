@@ -26,7 +26,7 @@ function Home (){
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        fetch('http://localhost:3000/parties', requestOptions)
+        fetch('https://sehranin-be.herokuapp.com/parties', requestOptions)
             .then(response => {
                 response.json()
                     .then(data => {
@@ -48,7 +48,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch('http://localhost:3000/parties', requestOptions)
+            fetch('https://sehranin-be.herokuapp.com/parties', requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -65,7 +65,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/place/${place}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/place/${place}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -84,7 +84,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/date/${date}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/date/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -102,7 +102,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/address/${address}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/address/${address}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -120,7 +120,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAndDate/${place}/${date}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAndDate/${place}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -138,7 +138,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAndAddress/${place}/${address}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAndAddress/${place}/${address}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -156,7 +156,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/addressAndDate/${address}/${date}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/addressAndDate/${address}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -173,7 +173,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {

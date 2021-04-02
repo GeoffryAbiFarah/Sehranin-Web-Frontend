@@ -44,7 +44,7 @@ export default function PostParty (){
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/parties', requestOptions)
+        fetch('https://sehranin-be.herokuapp.com/parties', requestOptions)
             .then(response => {
                 console.log("POST PARTY FETCHING RESPONSE: ",response.json());
             })

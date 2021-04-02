@@ -25,7 +25,7 @@ function Signup(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/users/signup', requestOptions)
+        fetch('https://sehranin-be.herokuapp.com/users/signup', requestOptions)
             .then(response => {
                 console.log("SIGNUP FETCHING RESPONSE: ",response.json());
 

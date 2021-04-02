@@ -25,7 +25,7 @@ function Login(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/users/login', requestOptions)
+        fetch('https://sehranin-be.herokuapp.com/users/login', requestOptions)
             .then(response => {
                 response.json()
                     .then(data => {
