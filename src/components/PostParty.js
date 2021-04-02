@@ -10,11 +10,48 @@ export default function PostParty (){
 
     useEffect(() => {
         validateAll();
-        console.log(title.valid, place.valid, address.valid, date.valid, phoneNumber.valid, price.valid, description.valid, allValid
-        )
+        // console.log(title.valid, place.valid, address.valid, date.valid, phoneNumber.valid, price.valid, description.valid, allValid
+        // )
         console.log(logged)
-
     })
+
+    //Handling submit
+    const handlePost= () => {
+        const data = {
+            title: document.getElementById("title").value,
+            place: document.getElementById("place").value,
+            address: document.getElementById("address").value,
+            date: document.getElementById("number").value,
+            number: document.getElementById("number").value,
+            price: document.getElementById("price").value,
+            description: document.getElementById("description").value
+        };
+
+        // console.log(data)
+        //
+        // const formData = new FormData()
+        // const json = JSON.stringify(data);
+        // const blob = new Blob([json], {
+        //     type: 'application/json'
+        // });
+        // formData.append('data', blob);
+        // formData.append('image', document.getElementById("image").files[0]);
+
+        // console.log(blob, document.getElementById("image").files[0])
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:3000/parties', requestOptions)
+            .then(response => {
+                console.log("POST PARTY FETCHING RESPONSE: ",response.json());
+            })
+            .catch(err => {
+                console.log("POST PARTY FETCHING ERROR: ", err);
+            })
+    }
 
     //input title state
     const [title, setTitle] = useState({
@@ -71,7 +108,7 @@ export default function PostParty (){
 
     //validate all fields
     const validateAll = () => {
-        setAllValid(title.valid && place.valid && address.valid && date.valid && phoneNumber.valid && price.valid && description.valid);
+        setAllValid(title.valid && place.valid && address.valid && date.valid && phoneNumber.valid && price.valid && description.valid && logged.token !== '');
     }
 
     //validate title
@@ -249,41 +286,7 @@ export default function PostParty (){
         }
     }
 
-    //Handling submit
-    const handlePost= () => {
-        const data = {
-            title: document.getElementById("title").value,
-            place: document.getElementById("place").value,
-            city: document.getElementById("address").value,
-            date: document.getElementById("number").value,
-            number: document.getElementById("number").value,
-            price: document.getElementById("price").value,
-            description: document.getElementById("description").value
-        };
 
-        const formData = new FormData()
-        const json = JSON.stringify(data);
-        const blob = new Blob([json], {
-            type: 'application/json'
-        });
-        formData.append('data', blob);
-        formData.append('image', document.getElementById("image").files[0]);
-
-        // console.log(blob, document.getElementById("image").files[0])
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        };
-        fetch('https://localhost/3000/parties', requestOptions)
-            .then(response => {
-                console.log("POST PARTY FETCHING RESPONSE: ",response.json());
-            })
-            .catch(err => {
-                console.log("POST PARTY FETCHING ERROR: ", err);
-            })
-    }
 
     return(
             <div>
@@ -292,6 +295,9 @@ export default function PostParty (){
                 {/*TITLE POST PARTY*/}
                 <Row className="text-center">
                     <Col><h1>Share your party here</h1></Col>
+                </Row>
+                <Row className="text-center">
+                    <Col><p>You need to sign in to be able to post a party</p></Col>
                 </Row>
 
                 {/*TITLE*/}
