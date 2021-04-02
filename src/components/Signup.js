@@ -2,11 +2,38 @@ import {Button, Col, FormText, Row} from "reactstrap";
 import {  FormGroup, Label, Input} from 'reactstrap';
 import { useState, useEffect } from  'react';
 
+
+
 function Signup(){
+
 
     useEffect(() => {
         validateAll();
     })
+
+    //Handling submit
+    const handleSignup = () => {
+        const data = {
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+            number: document.getElementById("number").value,
+            password: document.getElementById("password").value};
+        console.log(data);
+        console.log(JSON.stringify(data))
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:3000/users/signup', requestOptions)
+            .then(response => {
+                console.log("SIGNUP FETCHING RESPONSE: ",response.json());
+
+            })
+            .catch(err => {
+                console.log("SIGNUP FETCHING ERROR: ", err);
+            })
+    }
 
     //input username state
     const [username, setUsername] = useState({
@@ -196,28 +223,7 @@ function Signup(){
         setAllValid(username.valid && email.valid && phoneNumber.valid && password.valid && confirmPassword.valid);
     }
 
-    //Handling submit
-    const handleSignup = () => {
-        const data = {
-            username: document.getElementById("username").value,
-            email: document.getElementById("email").value,
-            number: document.getElementById("number").value,
-            password: document.getElementById("password").value};
-        console.log(data);
-        console.log(JSON.stringify(data))
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        };
-        fetch('https://localhost/3000/signup', requestOptions)
-            .then(response => {
-                console.log("SIGNUP FETCHING RESPONSE: ",response.json());
-            })
-            .catch(err => {
-                console.log("SIGNUP FETCHING ERROR: ", err);
-            })
-    }
+
     return(
         <div >
             <br/>

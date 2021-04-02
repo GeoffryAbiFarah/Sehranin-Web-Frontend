@@ -1,12 +1,19 @@
 import { FormGroup, Label, Input, InputGroup, InputGroupText, Row, Col, FormText, Button} from 'reactstrap';
 import {useState, useEffect} from "react";
+import {useSelector} from "react-redux";
+
+
 
 export default function PostParty (){
+
+    const logged = useSelector(state => state.loggedReducer)
 
     useEffect(() => {
         validateAll();
         console.log(title.valid, place.valid, address.valid, date.valid, phoneNumber.valid, price.valid, description.valid, allValid
         )
+        console.log(logged)
+
     })
 
     //input title state
