@@ -16,7 +16,7 @@ function Signup(){
         const data = {
             username: document.getElementById("username").value,
             email: document.getElementById("email").value,
-            number: document.getElementById("number").value,
+            phone: document.getElementById("number").value,
             password: document.getElementById("password").value};
         console.log(data);
         console.log(JSON.stringify(data))
