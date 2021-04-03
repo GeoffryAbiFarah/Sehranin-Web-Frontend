@@ -5,7 +5,7 @@ import {config} from "../config";
 
 function Account() {
     const logged = useSelector(state => state.loggedReducer)
-    console.log(logged);
+
     const [user, setUser] = useState({});
     
     useEffect(() => {
@@ -38,7 +38,7 @@ function Account() {
             phone: document.getElementById("phone").value,
             email: document.getElementById("email").value,
         };
-        console.log(data);
+
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
@@ -53,7 +53,7 @@ function Account() {
             .catch(err => {
                 console.log("PUT USER FETCHING ERROR: ", err);
             })
-            console.log(user);
+
     }
    
     const handleDelete = () => {

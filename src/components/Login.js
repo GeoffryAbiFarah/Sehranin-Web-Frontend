@@ -36,7 +36,7 @@ function Login() {
                             dispatch(loggedAction({ token: data.token, id: data.id }))
                             
                         }
-                        console.log(data.token);
+                        // console.log(data.token);
                     })
             })
             .then(() => history.push("/"))

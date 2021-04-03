@@ -37,7 +37,7 @@ function Home (){
             .catch(err => {
                 console.log("LOGIN FETCHING ERROR: ", err);
             })
-            console.log(logged);
+
     }, [])
 
     const handleSearch = () => {
