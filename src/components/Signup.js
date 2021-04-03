@@ -26,6 +26,7 @@ const history = useHistory()
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
+
         fetch(config.BE_URL+ '/users/signup', requestOptions)
             .then(response => {
                 console.log("SIGNUP FETCHING RESPONSE: ",response.json());

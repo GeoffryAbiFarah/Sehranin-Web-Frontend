@@ -47,6 +47,7 @@ const history = useHistory();
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
             body: JSON.stringify(data)
         };
+
         fetch(config.BE_URL+ '/parties', requestOptions)
             .then(response => {
                 console.log("POST PARTY FETCHING RESPONSE: ",response.json());

@@ -25,7 +25,11 @@ function Home (){
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
+<<<<<<< HEAD
         fetch(config.BE_URL+ '/parties', requestOptions)
+=======
+        fetch('https://sehranin-be.herokuapp.com/parties', requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
             .then(response => {
                 response.json()
                     .then(data => {
@@ -48,7 +52,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ '/parties', requestOptions)
+=======
+            fetch('https://sehranin-be.herokuapp.com/parties', requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -65,7 +73,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/place/${place}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/place/${place}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -84,7 +96,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/date/${date}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/date/${date}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -102,7 +118,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/address/${address}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/address/${address}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -120,7 +140,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/placeAndDate/${place}/${date}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAndDate/${place}/${date}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -138,7 +162,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/placeAndAddress/${place}/${address}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAndAddress/${place}/${address}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -156,7 +184,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/addressAndDate/${address}/${date}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/addressAndDate/${address}/${date}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -173,7 +205,11 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
+<<<<<<< HEAD
             fetch(config.BE_URL+ `/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
+=======
+            fetch(`https://sehranin-be.herokuapp.com/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
+>>>>>>> c7e1d124659bf8afdd6a7e72a2a10a8dc8a14f1f
                 .then(response => {
                     response.json()
                         .then(data => {

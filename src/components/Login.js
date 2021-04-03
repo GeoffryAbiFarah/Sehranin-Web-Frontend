@@ -26,7 +26,9 @@ function Login() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
+
         fetch(config.BE_URL+ '/users/login', requestOptions)
+
             .then(response => {
                 response.json()
                     .then(data => {
