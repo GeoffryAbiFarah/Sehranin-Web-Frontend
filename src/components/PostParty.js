@@ -2,6 +2,7 @@ import { FormGroup, Label, Input, InputGroup, InputGroupText, Row, Col, FormText
 import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import { useHistory } from 'react-router';
+import {config} from '../config';
 
 
 
@@ -46,7 +47,7 @@ const history = useHistory();
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/parties', requestOptions)
+        fetch(config.BE_URL+ '/parties', requestOptions)
             .then(response => {
                 console.log("POST PARTY FETCHING RESPONSE: ",response.json());
             })

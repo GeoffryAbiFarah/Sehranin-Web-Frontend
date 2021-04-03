@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { loggedAction } from "../actions/loggedAction";
 import { useHistory } from "react-router";
+import {config} from '../config';
 
 function Login() {
 
@@ -25,7 +26,7 @@ function Login() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/users/login', requestOptions)
+        fetch(config.BE_URL+ '/users/login', requestOptions)
             .then(response => {
                 response.json()
                     .then(data => {
