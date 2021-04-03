@@ -12,7 +12,6 @@ export default function PostParty (){
         validateAll();
         // console.log(title.valid, place.valid, address.valid, date.valid, phoneNumber.valid, price.valid, description.valid, allValid
         // )
-        console.log(logged)
     })
 
     //Handling submit

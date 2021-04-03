@@ -18,8 +18,7 @@ function Login(){
     //Handling submit
     const handleLogin = () => {
         const data = {username: document.getElementById("username").value, password: document.getElementById("password").value};
-        console.log(data);
-        console.log(JSON.stringify(data))
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -29,12 +28,10 @@ function Login(){
             .then(response => {
                 response.json()
                     .then(data => {
-                        console.log(data.success);
                         validateSuccess(data);
                     })
             })
             .catch(err => {
-                console.log(success);
                 console.log("LOGIN FETCHING ERROR: ", err);
 
             })

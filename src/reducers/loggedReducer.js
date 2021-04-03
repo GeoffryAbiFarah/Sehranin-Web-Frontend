@@ -10,6 +10,11 @@ export const loggedReducer = (state= initial_state, action) => {
                 token: action.payload.token,
                 id: action.payload.id
             };
+            case "LOGGED_OUT":
+            return {...state,
+                token: "",
+                id: ""
+            };
         default:
             return state;
     }
