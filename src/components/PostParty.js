@@ -1,10 +1,13 @@
 import { FormGroup, Label, Input, InputGroup, InputGroupText, Row, Col, FormText, Button} from 'reactstrap';
 import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
+import { useHistory } from 'react-router';
 
 
 
 export default function PostParty (){
+
+const history = useHistory();
 
     const logged = useSelector(state => state.loggedReducer)
 
@@ -20,7 +23,7 @@ export default function PostParty (){
             title: document.getElementById("title").value,
             place: document.getElementById("place").value,
             address: document.getElementById("address").value,
-            date: document.getElementById("number").value,
+            date: document.getElementById("date").value,
             number: document.getElementById("number").value,
             price: document.getElementById("price").value,
             description: document.getElementById("description").value
@@ -47,6 +50,7 @@ export default function PostParty (){
             .then(response => {
                 console.log("POST PARTY FETCHING RESPONSE: ",response.json());
             })
+            .then(() => history.push("/"))
             .catch(err => {
                 console.log("POST PARTY FETCHING ERROR: ", err);
             })

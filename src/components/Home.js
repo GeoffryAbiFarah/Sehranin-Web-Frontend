@@ -12,10 +12,12 @@ import {
     InputGroup,
     UncontrolledCollapse
 } from "reactstrap";
+import { useSelector } from "react-redux";
 
 function Home (){
 
     const [parties, setParties] = useState([]);
+    const logged = useSelector(state => state.loggedReducer);
 
     useEffect(() => {
         const requestOptions = {
@@ -32,9 +34,11 @@ function Home (){
             .catch(err => {
                 console.log("LOGIN FETCHING ERROR: ", err);
             })
+            console.log(logged);
     }, [])
 
     const handleSearch = () => {
+
         const place = document.getElementById("place").value;
         const date = document.getElementById("date").value;
         const address = document.getElementById("address").value;

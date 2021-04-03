@@ -1,4 +1,4 @@
-import { Container, Row, Col,  InputGroup, InputGroupAddon, InputGroupText, Input,Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input,Button } from 'reactstrap';
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -7,6 +7,9 @@ function Account() {
     console.log(logged);
     const [user, setUser] = useState({});
     
+    useEffect(() => {
+        refreshUser();
+    }, [])
 
     const refreshUser = () => {
         const requestOptions = {
@@ -23,8 +26,9 @@ function Account() {
             console.log("GET USER FETCHING ERROR: ", err);
         })
     }
+
+ 
     
-    refreshUser();
     const handleUpdate = () => {
         const data = {
             username: document.getElementById("username").value,

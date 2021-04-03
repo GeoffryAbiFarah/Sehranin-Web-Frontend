@@ -1,11 +1,13 @@
 import {Button, Col, FormText, Row} from "reactstrap";
 import {  FormGroup, Label, Input} from 'reactstrap';
 import { useState, useEffect } from  'react';
+import { useHistory } from "react-router-dom";
 
 
 
 function Signup(){
 
+const history = useHistory()
 
     useEffect(() => {
         validateAll();
@@ -27,7 +29,7 @@ function Signup(){
         fetch('http://localhost:3000/users/signup', requestOptions)
             .then(response => {
                 console.log("SIGNUP FETCHING RESPONSE: ",response.json());
-
+                history.push("/log-in")
             })
             .catch(err => {
                 console.log("SIGNUP FETCHING ERROR: ", err);
