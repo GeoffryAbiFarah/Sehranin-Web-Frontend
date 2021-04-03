@@ -18,8 +18,7 @@ function Signup(){
             email: document.getElementById("email").value,
             phone: document.getElementById("number").value,
             password: document.getElementById("password").value};
-        console.log(data);
-        console.log(JSON.stringify(data))
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

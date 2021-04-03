@@ -1,14 +1,21 @@
 import {useState} from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
+import { loggedOutAction } from '../actions/loggedAction';
 
-function NavigationBar () {
+function LoggedNavigationBar () {
 
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useDispatch();
 
     
     const toggle = () => {
         setIsOpen(isOpen => !isOpen)
+    }
+
+    const onLogout = () => {
+        dispatch(loggedOutAction());
     }
 
     return(
@@ -24,14 +31,19 @@ function NavigationBar () {
               <NavLink tag={Link} to="/" style={{color:"white"}}>Home</NavLink>
               </NavItem>
 
-              {/* Sign up*/}
+              {/* post a party here */}
               <NavItem>
-                <NavLink tag={Link} to="/sign-up" style={{color:"white"}}>Signup</NavLink>
+              <NavLink tag={Link} to="/post-a-party" style={{color:"white"}}>Post A Party</NavLink>
               </NavItem>
 
-              {/* Login*/}
+              {/* My account*/}
               <NavItem>
-                <NavLink tag={Link} to="/log-in" style={{color:"white"}}>Login</NavLink>
+                <NavLink tag={Link} to="/my-account" style={{color:"white"}}>My Account</NavLink>
+              </NavItem>
+
+              {/* Logout*/}
+              <NavItem>
+                <NavLink tag={Link} to="/" style={{color:"white"}} onClick={onLogout}>Logout</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -40,5 +52,5 @@ function NavigationBar () {
     );
 }
 
-export default NavigationBar;
+export default LoggedNavigationBar;
 

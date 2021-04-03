@@ -18,10 +18,6 @@ function Home (){
     const [parties, setParties] = useState([]);
 
     useEffect(() => {
-    console.log(parties)
-        const place = document.getElementById("place").value;
-        const date = document.getElementById("date").value;
-        const address = document.getElementById("address").value;
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -39,7 +35,6 @@ function Home (){
     }, [])
 
     const handleSearch = () => {
-        console.log(parties)
         const place = document.getElementById("place").value;
         const date = document.getElementById("date").value;
         const address = document.getElementById("address").value;

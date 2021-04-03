@@ -4,3 +4,9 @@ export const loggedAction = (data) => {
         payload: data
     })
 }
+
+export const loggedOutAction = () => {
+    return({
+        type: "LOGGED_OUT"
+    })
+}
