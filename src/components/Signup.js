@@ -1,11 +1,13 @@
 import {Button, Col, FormText, Row} from "reactstrap";
 import {  FormGroup, Label, Input} from 'reactstrap';
 import { useState, useEffect } from  'react';
-
+import { useHistory } from "react-router-dom";
+import {config} from '../config';
 
 
 function Signup(){
 
+const history = useHistory()
 
     useEffect(() => {
         validateAll();
@@ -24,10 +26,10 @@ function Signup(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/users/signup', requestOptions)
+        fetch(config.BE_URL+ '/users/signup', requestOptions)
             .then(response => {
                 console.log("SIGNUP FETCHING RESPONSE: ",response.json());
-
+                history.push("/log-in")
             })
             .catch(err => {
                 console.log("SIGNUP FETCHING ERROR: ", err);

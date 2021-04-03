@@ -1,19 +1,23 @@
-import { Container, Row, Col,  InputGroup, InputGroupAddon, InputGroupText, Input,Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText, Input,Button } from 'reactstrap';
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import {config} from "../config";
 
 function Account() {
     const logged = useSelector(state => state.loggedReducer)
     console.log(logged);
     const [user, setUser] = useState({});
     
+    useEffect(() => {
+        refreshUser();
+    }, [])
 
     const refreshUser = () => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
         };
-        fetch('http://localhost:3000/users/id/' + logged.id, requestOptions)
+        fetch(config.BE_URL+ '/users/id/' + logged.id, requestOptions)
             .then(response => {
                 response.json()
                     .then(data => { setUser(data); })
@@ -23,8 +27,9 @@ function Account() {
             console.log("GET USER FETCHING ERROR: ", err);
         })
     }
+
+ 
     
-    refreshUser();
     const handleUpdate = () => {
         const data = {
             username: document.getElementById("username").value,
@@ -37,7 +42,7 @@ function Account() {
             headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${logged.token}`},
             body: JSON.stringify(data)
         };
-        fetch('http://localhost:3000/users/id/'+logged.id, requestOptions)
+        fetch(config.BE_URL + '/users/id/'+logged.id, requestOptions)
             .then(response => {
                 console.log("PUT USER FETCHING RESPONSE: ",response.json());
             })

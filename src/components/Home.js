@@ -12,17 +12,20 @@ import {
     InputGroup,
     UncontrolledCollapse
 } from "reactstrap";
+import { useSelector } from "react-redux";
+import {config} from '../config';
 
 function Home (){
 
     const [parties, setParties] = useState([]);
+    const logged = useSelector(state => state.loggedReducer);
 
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        fetch('http://localhost:3000/parties', requestOptions)
+        fetch(config.BE_URL+ '/parties', requestOptions)
             .then(response => {
                 response.json()
                     .then(data => {
@@ -32,9 +35,11 @@ function Home (){
             .catch(err => {
                 console.log("LOGIN FETCHING ERROR: ", err);
             })
+            console.log(logged);
     }, [])
 
     const handleSearch = () => {
+
         const place = document.getElementById("place").value;
         const date = document.getElementById("date").value;
         const address = document.getElementById("address").value;
@@ -43,7 +48,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch('http://localhost:3000/parties', requestOptions)
+            fetch(config.BE_URL+ '/parties', requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -60,7 +65,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/place/${place}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/place/${place}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -79,7 +84,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/date/${date}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/date/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -97,7 +102,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/address/${address}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/address/${address}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -115,7 +120,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAndDate/${place}/${date}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/placeAndDate/${place}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -133,7 +138,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAndAddress/${place}/${address}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/placeAndAddress/${place}/${address}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -151,7 +156,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/addressAndDate/${address}/${date}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/addressAndDate/${address}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
@@ -168,7 +173,7 @@ function Home (){
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             };
-            fetch(`http://localhost:3000/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
+            fetch(config.BE_URL+ `/parties/placeAddressAndDate/${place}/${address}/${date}`, requestOptions)
                 .then(response => {
                     response.json()
                         .then(data => {
