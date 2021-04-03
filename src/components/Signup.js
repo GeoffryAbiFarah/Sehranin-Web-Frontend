@@ -250,7 +250,7 @@ const history = useHistory()
                 <Col md={6} xs={10} className="offset-md-3 offset-1">
                     <FormGroup>
                         <Label for="email">Email</Label>
-                        <Input type="email" name="email" id="email" placeholder="anthony@coacher.com" className="form-input" onChange={validateEmail}/>
+                        <Input type="email" name="email" id="email" placeholder="Enter email here.." className="form-input" onChange={validateEmail}/>
                         <FormText>{email.message}</FormText>
                     </FormGroup>
                 </Col>
